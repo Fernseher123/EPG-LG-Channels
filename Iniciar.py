@@ -4,8 +4,8 @@ from datetime import datetime, timezone, timedelta
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
-COUNTRY_CODE = 'US'
-LANGUAGE_CODE = 'en'
+COUNTRY_CODE = 'DE'
+LANGUAGE_CODE = 'de'
 USER_AGENT = 'Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 LG Browser/8.0.0 WebOS.TV-2024/04.00.00 (LG; OLED65C4PUA;)'
 
 # Definição de horários em UTC
@@ -43,9 +43,9 @@ try:
         # FASE 1: GERAR O ARQUIVO M3U (COM X-TVG-URL INJETADO)
         # ----------------------------------------------------
         total_canais = 0
-        with open("lg_channels_us.m3u", "w", encoding="utf-8") as f_m3u:
+        with open("lg_channels_de.m3u", "w", encoding="utf-8") as f_m3u:
             # ALTERADO AQUI: Injeção automática da URL do EPG no cabeçalho do M3U
-            f_m3u.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/JulioCesarXY/EPG-LG-Channels/refs/heads/main/lg_epg_us.xml"\n')
+            f_m3u.write('#EXTM3U x-tvg-url="https://raw.githubusercontent.com/Fernseher123/EPG-LG-Channels/refs/heads/main/lg_epg_de.xml"\n')
             
             for categoria in dados.get("categories", []):
                 nome_categoria = categoria.get("categoryName", "General")
@@ -62,7 +62,7 @@ try:
                         f_m3u.write(f'{url_limpa}\n')
                         total_canais += 1
                         
-        print(f"[SUCESSO] Lista 'lg_channels_us.m3u' gerada com {total_canais} canais mapeados.")
+        print(f"[SUCESSO] Lista 'lg_channels_de.m3u' gerada com {total_canais} canais mapeados.")
 
         # ----------------------------------------------------
         # FASE 2: GERAR O ARQUIVO XMLTV (EPG)
@@ -114,7 +114,7 @@ try:
         with open("lg_epg_us.xml", "w", encoding="utf-8") as f_xml:
             f_xml.write(xml_bonito)
             
-        print(f"[SUCESSO] Guia de programação 'lg_epg_us.xml' gerado com {total_programas} programas reais da API!")
+        print(f"[SUCESSO] Guia de programação 'lg_epg_de.xml' gerado com {total_programas} programas reais da API!")
 
     else:
         print(f"[ERRO] Falha na resposta da API: {response.status_code}")
