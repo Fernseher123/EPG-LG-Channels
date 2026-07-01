@@ -7,7 +7,7 @@ from xml.dom import minidom
 # ----------------------------------------------------
 # KONFIGURATION - für deutsche LG Channels angepasst
 # ----------------------------------------------------
-LANGUAGE_CODE = 'de'
+LANGUAGE_CODE = 'en'
 USER_AGENT = 'Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 LG Browser/8.0.0 WebOS.TV-2024/04.00.00 (LG; OLED65C4PUA;)'
 
 # WICHTIG: Trage hier deinen GitHub-Benutzernamen und Repo-Namen ein,
@@ -24,7 +24,7 @@ OUTPUT_XML = "lg_epg_de.xml"
 # Wir probieren deshalb automatisch mehrere plausible Schreibweisen durch,
 # bis eine funktioniert. Sobald du weißt, welche funktioniert, kannst du
 # die Liste unten auf genau diesen einen Wert reduzieren.
-KANDIDATEN = ['DE', 'de', 'DEU', 'de-DE', 'de_DE', 'GERMANY']
+KANDIDATEN = ['uk', 'de', 'DEU', 'de-DE', 'de_DE', 'GERMANY']
 
 url = "https://api.lgchannels.com/api/v1.0/schedulelist"
 
